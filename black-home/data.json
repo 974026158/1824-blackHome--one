@@ -1,0 +1,33 @@
+{
+	"list" :[
+		{
+			"id" : "jiu1",
+			"name" : "赠纸巾盒",
+			"src" : "yang1.jpg",
+			"brief" : "麦卡伦 12年单一纯麦威士忌 700ml    ",
+			"price" : "580 元"
+		},
+		{
+			"id" : "jiu2",
+			"name" : "给力钜惠",
+			"src" : "yang2.jpg",
+			"brief" : "轩尼诗Hennessy VSOP 干邑白兰地 700ml    ",
+			"price" : "428 元"
+		},
+		{
+			"id" : "jiu3",
+			"name" : "给力钜惠",
+			"src" : "yang3.jpg",
+			"brief" : "芝华士 12年威士忌 700ml    ",
+			"price" : "175 元"
+		},
+		{
+			"id" : "jiu4",
+			"name" : "赠纸巾盒",
+			"src" : "yang4.jpg",
+			"brief" : "人头马 俱乐部 干邑白兰地 700ml     ",
+			"price" : "510 元"
+		}
+	]
+}
+

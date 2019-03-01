@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font_zta9i969e3/iconfont.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="headerCon">
+				<div class="header_logo">
+					<a href="index.html"><img src="images/logo.jpg" style="margin-top: 20px;" /></a>
+				</div>
+				<div class="header_login">
+					<div class="login_right">
+						<a href="" style="color: #000000;">如您已有账号</a>
+						<a href="">请登录</a>
+						<a href="">
+							<i class="iconfont">&#xe639;</i> 帮助
+						</a>
+						<a href="" style="color: red;">
+							<i class="iconfont">&#xe7c1;</i> 在线客服
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="control">
+			<div class="control_Con">
+				<div class="Con_middle">
+					<div class="Con_middle_left">
+						<div class="iphone">
+							<a href="" style="display: block;width: 258px;height: 23px;text-align: center;">
+								<i class="iconfont" style="font-size: 14px;">&#xe6ac;手机注册</i>
+							</a>
+							<div class="abcde">
+								<span class="abcdef">◆</span>
+								<span class="abcdefg">|</span>
+							</div>
+						</div>
+						<div class="sousuo" style="height: 40px;padding-left: 135px;">
+							手机号：<input type="text" style="width: 242px;height: 40px;" />
+							<span id="Hint">
+								<i class="iconfont">&#xe52b;</i>
+							</span>
+						</div>
+						<div class="sousuo" style="height: 40px;padding-left: 135px;margin-top: 12px;position: relative;">
+							验证码：<input type="text" style="width: 242px;height: 40px;" />
+							<div class="yanzheng"></div>
+							<a href="" style="font-size: 12px;">换一张</a>
+						</div>
+						<div class="sousuo" style="height: 40px;padding-left: 135px;margin-top: 12px;position: relative;">
+							校验码：<input type="text" style="width: 146px;height: 40px;" />
+							<div class="jiaozheng">
+								<a href="">获取校验码</a>
+							</div>
+							<i class="iconfont">&#xe646;</i>
+						</div>
+						<div class="sousuo" style="height: 40px;padding-left: 120px;margin-top: 12px;">
+							设置密码：<input type="text" style="width: 242px;height: 40px;" />
+							<span id="Hint1">
+								<i class="iconfont">&#xe52b;</i>
+							</span>
+						</div>
+						<div class="sousuo" style="height: 40px;padding-left: 120px;margin-top: 12px;">
+							确认密码：<input type="text" style="width: 242px;height: 40px;" />
+							<span id="Hint2">
+								<i class="iconfont">&#xe52b;</i>
+							</span>
+						</div>
+						<p class="xieyi">
+							<a href="http://www.gjw.com/help/show-id-47.htm"> 点击注册，表示您同意购酒网 《服务协议》</a>
+						</p>
+						<button class="Btnbtn">注 册</button>
+					</div>
+					<div class="Con_middle_right">
+						<a href=""><img src="images/d38c6e671b1a472491a74505b4ebf2fc.jpg" style="display: block;margin: 83px auto;" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="footer_top">
+				<a href="">关于我们</a>
+				<a href="">|</a>
+				<a href="">联系我们</a>
+				<a href="">|</a>
+				<a href="">友情链接</a>
+				<a href="">|</a>
+				<a href="">隐私声明</a>
+				<a href="">|</a>
+				<a href="">人才招聘</a>
+			</div>
+			<div class="footer_bottom">
+				Copyright©2009-2019 gjw.com, All Rights Reserved 购酒网(上海)供应链管理有限公司 版权所有
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	//存cookie
+	var $tex1 = $(".sousuo").eq(0).children("input"); //用户名文本框
+	var $tex2 = $(".sousuo").eq(3).children("input"); //密码框
+	var $tex3 = $(".sousuo").eq(4).children("input"); //确认密码框
+	var $s1 = $("#Hint"); //提示作用
+	var $s2 = $("#Hint1"); //提示作用
+	var $s3 = $("#Hint2"); //确认密码框的提示作用提示作用
+	$tex1.focus(function() {
+		$tex1.val("")
+		/*console.log( $tex1.val() )*/
+		$s1.html("")
+	})
+	//	用户名验证
+	$tex1.blur(function() {
+		//手机号正则
+		var reg = /^1[3578]\d{9}$/;
+		if($tex1.val() == "") {
+			$s1.html("请输入手机号")
+			$s1.css("color", "red")
+		} else if(reg.test($tex1.val())) {
+			$s1.html("格式正确")
+			$s1.css("color", "gold")
+		} else {
+			$s1.html("格式不正确")
+			$s1.css("color", "red")
+		}
+	})
+	//密码验证
+	$tex2.focus(function() {
+		$tex2.val("");
+		$s2.html("");
+	})
+	$tex2.blur(function() {
+		//字母数字
+		var reg1 = /^[0-9a-zA-Z]+$/;
+		//空白
+		var reg2 = /\s+/;
+		//判断格式
+		if($tex2.val() == "") {
+			$s2.html("请输入密码")
+			$s2.css("color", "red")
+		} else if($tex2.val().length < 8) {
+			$s2.html("密码长度不少于8位")
+			$s2.css("color", "red")
+		} else if(reg2.test($tex2.val())) {
+			$s2.html("不能输入空格")
+			$s2.css("color", "red")
+		} else if(reg1.test($tex2.val())) {
+			$s2.html("格式正确")
+			$s2.css("color", "gold")
+		} else {
+			$s2.html("格式不正确")
+			$s2.css("color", "red")
+		}
+	})
+	$tex3.focus(function() {
+		$tex3.val("");
+		$s3.html("");
+	})
+	$tex3.blur(function() {
+		if($tex3.val() == "") {
+			$s3.html("请再次输入密码");
+			$s3.css("color","red");
+		}else if( $tex3.val() == $tex2.val() ){
+			$s3.html("密码一致");
+			$s3.css("color","gold");
+			$(".Btnbtn").click(function(){
+				var te1 = $tex1.val();
+				var te2 = $tex2.val();
+				document.cookie = "y=" + te1;
+				document.cookie = "m=" + te2;
+				location.href = "login.html";
+	})
+		}else{
+			$s3.html("密码不一致");
+			$s3.css("color","red");
+		}
+	})
+	
+</script>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font_zta9i969e3/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="font_2s232b9jw9o/iconfont.css" />
+	</head>
+
+	<body>
+		<div id="header">
+			<div class="headerCon">
+				<div class="header_logo">
+					<a href="index.html"><img src="images/logo.jpg" style="margin-top: 20px;" /></a>
+				</div>
+				<div class="header_login">
+					<div class="login_right">
+						<a href="">如您已有账号</a>
+						<a href="">请登录</a>
+						<a href="">
+							<i class="iconfont">&#xe639;</i> 帮助
+						</a>
+						<a href="">
+							<i class="iconfont">&#xe7c1;</i> 在线客服
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--中间内容显示区-->
+		<div id="main">
+			<div class="mainCon">
+				<form action="" method="post" class="Con_login">
+					<div class="frl">
+						<a href=""><img src="images/3d34107aafe240fd9d23d22592b0e05c.jpg" /></a>
+					</div>
+					<div class="frr">
+						<div class="frr_1">
+							<div class="vip_login"><i class="iconfont">&#xe60e;</i> 购酒会员登录</div>
+							<div class="text_box">
+								<i class="iconfont" style="margin-left: 20px;">&#xe60e;</i>
+								<input type="text" placeholder="手机号" />
+								<span id="s1"></span>
+							</div>
+							<div class="text_box" style="border-top: none;">
+								<i class="iconfont" style="margin-left: 20px;">&#xe65d;</i>
+								<input type="text" />
+								<span id="s2"></span>
+							</div>
+							<div class="Code_place">
+								<input type="text" placeholder="请输入验证码" />
+								<div class="auth"></div>
+								<a href=""> 看不清？换一张</a>
+							</div>
+							<div class="remember">
+								<div class="remember_left">
+									<input type="checkbox" style="vertical-align: middle;" id="ck" />记住密码
+								</div>
+								<div class="remember_right">
+									<a href="" style="color: #ccc;">忘记密码</a>
+								</div>
+							</div>
+							<input type="submit" value="登 录" class="remember_btn" />
+						</div>
+						<div id="bottom_border"></div>
+						<div id="Coop">
+							<a href="">使用合作账号登录</a>
+							<a href=""><i class="iconfont" style="color:#0086B3;">&#xe617;</i></a>
+							<a href=""><i class="iconfont" style="color:#00BFFF;font-size: 40px;">&#xe52c;</i></a>
+							<a href=""><i class="iconfont" style="color: #63A35C;">&#xe618;</i></a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<!--底部-->
+		<div id="footer">
+			<div class="footer_top">
+				<a href="">关于我们</a>
+				<a href="">|</a>
+				<a href="">联系我们</a>
+				<a href="">|</a>
+				<a href="">友情链接</a>
+				<a href="">|</a>
+				<a href="">隐私声明</a>
+				<a href="">|</a>
+				<a href="">人才招聘</a>
+			</div>
+			<div class="footer_bottom">
+				Copyright©2009-2019 gjw.com, All Rights Reserved 购酒网(上海)供应链管理有限公司 版权所有
+			</div>
+		</div>
+	</body>
+
+</html>
+<script src="jquery-1.11.1.js"></script>
+<script type="text/javascript">
+	//取cookie
+	var $tex1 = $("input").eq(0);
+	var $s1 = $("#s1");
+	var $tex2 = $("input").eq(1);
+	var $s2 = $("#s2");
+
+	window.onload = function() {
+		//用一个变量接受cookie
+		var str = document.cookie;
+		//console.log( str );// y=18602237500; m=zhangzhihang
+		//分割 慢慢取出cookie
+		var str1 = str.split("; ")
+		//console.log( str1 );// ["y=18602237500", "m=zhangzhihang"]
+		for(var i = 0; i < str1.length; i++) {
+			//console.log( str1[i] );//y=18602237500 m=zhangzhihang
+			var str2 = str1[i].split("=");
+			//console.log( str2 );// ["y", "18602237500"]  ["m", "zhangzhihang"]
+			if(str2[0] == "y") { //如果键相等 取出对应的值
+				var st = str2[1]
+				console.log(st); //18602237500
+			};
+			if(str2[0] == "m") {
+				var st1 = str2[1]
+				console.log(st1); //zhangzhihang
+			}
+			$(".remember_btn").click(function() {
+				if(st == $tex1.val() && st1 == $tex2.val()) {
+					/*alert("登录成功");*/
+					/*console.log( st , st1 )*/
+					open("index.html");
+					/*alert("成功")*/
+				} else {
+					alert("登录失败")
+				}
+			})
+			
+			
+			
+			
+
+		}
+	
+	}
+	$("#ck").change(function() {
+		//alert()
+		document.cookie = "st=" + $tex1.val() ;
+		document.cookie = "st1=" + $tex2.val();
+		//console.log(res)
+		var time = new Date;
+		time.setDate(time.getDate() + 1)
+	})
+	
+</script>
